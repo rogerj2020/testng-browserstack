@@ -1,0 +1,17 @@
+*.png
+target/
+local.log
+.idea
+*.iml
+.gradle
+build/
+.DS_Store
+gradle
+gradlew
+gradlew.bat
+logs
+browserstack.err
+.settings/
+log/
+.project
+.classpath
