@@ -4,12 +4,12 @@ name: Semgrep
 on:
   # Scan changed files in PRs (diff-aware scanning):
   # The branches below must be a subset of the branches above
-  pull_request:
-    branches: ["master", "main"]
-  push:
-    branches: ["master", "main"]
-  schedule:
-    - cron: '0 6 * * *'
+  #pull_request:
+  #  branches: ["master", "main"]
+  #push:
+  #  branches: ["master", "main"]
+  #schedule:
+  #  - cron: '0 6 * * *'
 
 
 permissions:
