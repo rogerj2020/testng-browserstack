@@ -23,6 +23,8 @@ jobs:
     env:
       BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
       BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+      BSTACK_DEMO_USERNAME: ${{ secrets.BSTACK_DEMO_USERNAME }}
+      BSTACK_DEMO_PASSWORD: ${{ secrets.BSTACK_DEMO_PASSWORD }}
 
     steps:
       - uses: actions/checkout@v3
