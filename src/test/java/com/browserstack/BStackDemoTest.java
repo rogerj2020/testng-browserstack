@@ -38,7 +38,7 @@ public class BStackDemoTest extends SeleniumTest {
     }
     
     @Test
-    public void addFavoriteGalaxyS20() throws InterruptedException {
+    public void testAddFavoriteGalaxyS20() throws InterruptedException {
     	driver.get("https://www.bstackdemo.com");
     	driver.findElement(By.id("signin")).click();
     	driver.findElement(By.id("username")).click();
@@ -72,29 +72,24 @@ public class BStackDemoTest extends SeleniumTest {
         	actions.moveToElement(favButton);
         	actions.perform();
         	favButton.click();
-    	}catch(MoveTargetOutOfBoundsException ex) { // Firefox doesn't scroll on moveToElement: https://stackoverflow.com/a/52045231
-    		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", s20DeviceInfo);
+    	}catch(MoveTargetOutOfBoundsException ex) { 
+    		// Firefox doesn't scroll on moveToElement: 
+    		// https://stackoverflow.com/a/52045231
+    		// Using JavaScript to help with scroll and click
+    		((JavascriptExecutor) driver).executeScript(
+    				"arguments[0].scrollIntoView(true);", s20DeviceInfo);
+    		
     		actions.moveToElement(favButton);
         	actions.perform();
-        	((JavascriptExecutor) driver).executeScript("arguments[0].click();", favButton);
+        	((JavascriptExecutor) driver).executeScript(
+        			"arguments[0].click();", favButton);
     	}
     	
-    	
-    	
-    	driver.findElement(By.id("favourites")).click();
-    	
-//    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-//    	wait.until(webDriver -> "complete".equals(((JavascriptExecutor) webDriver)
-//    	    .executeScript("return document.readyState")));
-    	
-    	
+    	driver.findElement(By.id("favourites")).click();   	
     	
     	s20DeviceInfo = driver.findElement(s20DeviceInfoBy);
-    	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", s20DeviceInfo);
-//    	actions.moveToElement(s20DeviceInfo).build().perform();
-//    	actions.perform();
-    	
-//    	Thread.sleep(2000);
+    	((JavascriptExecutor) driver).executeScript(
+    			"arguments[0].scrollIntoView();", s20DeviceInfo);
     	
     	// See if the shelf item is displayed or not
         Assert.assertTrue(s20DeviceInfo.isDisplayed());
