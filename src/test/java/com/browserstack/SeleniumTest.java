@@ -18,7 +18,7 @@ public class SeleniumTest {
     
     @BeforeSuite
     public void oneTimeSetup() {
-//    	WebDriverManager.chromedriver().setup();
+    	WebDriverManager.chromedriver().setup();
 //    	WebDriverManager.firefoxdriver().setup();
     }
 
